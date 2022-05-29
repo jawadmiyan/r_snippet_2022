@@ -48,3 +48,19 @@ format(700000)
 format(700000, scientific = FALSE)
 nchar(format(700000, scientific = FALSE))
 
+
+library(ggplot2)
+library(ggtext)
+
+ggplot(iris) +
+  geom_point(aes(x = Sepal.Length, y = Petal.Length)) +
+  facet_wrap(~ Species) +
+  theme(
+    strip.text = element_textbox(
+    size = 12,
+    color = "white", fill = "skyblue", box.color = "black",
+    halign = 0.5, linetype = 1, r = unit(5, "pt"), width = unit(1, "npc"), 
+    padding = margin(2,0,1,0), margin = margin(3,3,3,3)
+  )
+)
+
